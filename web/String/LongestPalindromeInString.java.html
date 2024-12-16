@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>LongestPalindromeInString.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+LongestPalindromeInString.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">String</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">LongestPalindromeInString </span><span class="s2">{</span>
+    <span class="s3">// Leetcode 5. Longest Palindromic Substring (String, Dynamic Programming)</span>
+    <span class="s0">public </span><span class="s1">String longestPalindrome</span><span class="s2">(</span><span class="s1">String s</span><span class="s2">) {</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">s </span><span class="s2">== </span><span class="s0">null </span><span class="s2">|| </span><span class="s1">s</span><span class="s2">.</span><span class="s1">isEmpty</span><span class="s2">()) </span><span class="s0">return </span><span class="s4">&quot;&quot;</span><span class="s2">;</span>
+        <span class="s0">int </span><span class="s1">start </span><span class="s2">= </span><span class="s5">0</span><span class="s2">, </span><span class="s1">end </span><span class="s2">= </span><span class="s5">0</span><span class="s2">;</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">s</span><span class="s2">.</span><span class="s1">length</span><span class="s2">(); </span><span class="s1">i</span><span class="s2">++) {</span>
+            <span class="s0">int </span><span class="s1">len1 </span><span class="s2">= </span><span class="s1">expandAroundCenter</span><span class="s2">(</span><span class="s1">s</span><span class="s2">, </span><span class="s1">i</span><span class="s2">, </span><span class="s1">i</span><span class="s2">);</span>
+            <span class="s0">int </span><span class="s1">len2 </span><span class="s2">= </span><span class="s1">expandAroundCenter</span><span class="s2">(</span><span class="s1">s</span><span class="s2">, </span><span class="s1">i</span><span class="s2">, </span><span class="s1">i </span><span class="s2">+ </span><span class="s5">1</span><span class="s2">);</span>
+            <span class="s0">int </span><span class="s1">len </span><span class="s2">= </span><span class="s1">Math</span><span class="s2">.</span><span class="s1">max</span><span class="s2">(</span><span class="s1">len1</span><span class="s2">, </span><span class="s1">len2</span><span class="s2">);</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">len </span><span class="s2">&gt; </span><span class="s1">end </span><span class="s2">- </span><span class="s1">start</span><span class="s2">) {</span>
+                <span class="s1">start </span><span class="s2">= </span><span class="s1">i </span><span class="s2">- (</span><span class="s1">len </span><span class="s2">- </span><span class="s5">1</span><span class="s2">) / </span><span class="s5">2</span><span class="s2">;</span>
+                <span class="s1">end </span><span class="s2">= </span><span class="s1">i </span><span class="s2">+ </span><span class="s1">len </span><span class="s2">/ </span><span class="s5">2</span><span class="s2">;</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+        <span class="s0">return </span><span class="s1">s</span><span class="s2">.</span><span class="s1">substring</span><span class="s2">(</span><span class="s1">start</span><span class="s2">, </span><span class="s1">end </span><span class="s2">+ </span><span class="s5">1</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">private int </span><span class="s1">expandAroundCenter</span><span class="s2">(</span><span class="s1">String s</span><span class="s2">, </span><span class="s0">int </span><span class="s1">left</span><span class="s2">, </span><span class="s0">int </span><span class="s1">right</span><span class="s2">) {</span>
+        <span class="s0">while </span><span class="s2">(</span><span class="s1">left </span><span class="s2">&gt;= </span><span class="s5">0 </span><span class="s2">&amp;&amp; </span><span class="s1">right </span><span class="s2">&lt; </span><span class="s1">s</span><span class="s2">.</span><span class="s1">length</span><span class="s2">() &amp;&amp; </span><span class="s1">s</span><span class="s2">.</span><span class="s1">charAt</span><span class="s2">(</span><span class="s1">left</span><span class="s2">) == </span><span class="s1">s</span><span class="s2">.</span><span class="s1">charAt</span><span class="s2">(</span><span class="s1">right</span><span class="s2">)) {</span>
+            <span class="s1">left</span><span class="s2">--; </span><span class="s1">right</span><span class="s2">++;</span>
+        <span class="s2">}</span>
+        <span class="s0">return </span><span class="s1">right </span><span class="s2">- </span><span class="s1">left </span><span class="s2">- </span><span class="s5">1</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s1">LongestPalindromeInString l </span><span class="s2">= </span><span class="s0">new </span><span class="s1">LongestPalindromeInString</span><span class="s2">();</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">l</span><span class="s2">.</span><span class="s1">longestPalindrome</span><span class="s2">(</span><span class="s4">&quot;babad&quot;</span><span class="s2">));</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

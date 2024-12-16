@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>ReplaceZeroWithOne.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+ReplaceZeroWithOne.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">Arrays</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Scanner</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">ReplaceZeroWithOne </span><span class="s2">{</span>
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s1">Scanner scanner </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Scanner</span><span class="s2">(</span><span class="s1">System</span><span class="s2">.</span><span class="s1">in</span><span class="s2">);</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;Enter an integer: &quot;</span><span class="s2">);</span>
+        <span class="s0">int </span><span class="s1">number </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">();</span>
+
+        <span class="s0">int </span><span class="s1">result </span><span class="s2">= </span><span class="s1">replaceZeroWithOne</span><span class="s2">(</span><span class="s1">number</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Result after replacing 0's with 1's: &quot; </span><span class="s2">+ </span><span class="s1">result</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">private static int </span><span class="s1">replaceZeroWithOne</span><span class="s2">(</span><span class="s0">int </span><span class="s1">num</span><span class="s2">) {</span>
+        <span class="s0">int </span><span class="s1">result </span><span class="s2">= </span><span class="s4">0</span><span class="s2">, </span><span class="s1">place </span><span class="s2">= </span><span class="s4">1</span><span class="s2">;</span>
+
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">num </span><span class="s2">== </span><span class="s4">0</span><span class="s2">) {</span>
+            <span class="s0">return </span><span class="s4">1</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+        <span class="s0">while </span><span class="s2">(</span><span class="s1">num </span><span class="s2">&gt; </span><span class="s4">0</span><span class="s2">) {</span>
+            <span class="s0">int </span><span class="s1">digit </span><span class="s2">= </span><span class="s1">num </span><span class="s2">% </span><span class="s4">10</span><span class="s2">;</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">digit </span><span class="s2">== </span><span class="s4">0</span><span class="s2">) {</span>
+                <span class="s1">digit </span><span class="s2">= </span><span class="s4">1</span><span class="s2">;</span>
+            <span class="s2">}</span>
+            <span class="s1">result </span><span class="s2">+= </span><span class="s1">digit </span><span class="s2">* </span><span class="s1">place</span><span class="s2">;</span>
+            <span class="s1">place </span><span class="s2">*= </span><span class="s4">10</span><span class="s2">;</span>
+            <span class="s1">num </span><span class="s2">/= </span><span class="s4">10</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+        <span class="s0">return </span><span class="s1">result</span><span class="s2">;</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+
+</pre>
+</body>
+</html>

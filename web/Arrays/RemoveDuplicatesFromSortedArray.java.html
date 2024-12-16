@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>RemoveDuplicatesFromSortedArray.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+RemoveDuplicatesFromSortedArray.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">Arrays</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Arrays</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">HashSet</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Set</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">RemoveDuplicatesFromSortedArray </span><span class="s2">{</span>
+    <span class="s3">// Leetcode 26. Remove Duplicates from Sorted Array (Array, Two Pointers)</span>
+    <span class="s0">public int </span><span class="s1">removeDuplicates</span><span class="s2">(</span><span class="s0">int</span><span class="s2">[] </span><span class="s1">nums</span><span class="s2">) {</span>
+        <span class="s0">int </span><span class="s1">uniqueIndex </span><span class="s2">= </span><span class="s4">1</span><span class="s2">;</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s4">1</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">nums</span><span class="s2">.</span><span class="s1">length</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++) {</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">nums</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] != </span><span class="s1">nums</span><span class="s2">[</span><span class="s1">i </span><span class="s2">- </span><span class="s4">1</span><span class="s2">]) {</span>
+                <span class="s1">nums</span><span class="s2">[</span><span class="s1">uniqueIndex</span><span class="s2">] = </span><span class="s1">nums</span><span class="s2">[</span><span class="s1">i</span><span class="s2">];</span>
+                <span class="s1">uniqueIndex</span><span class="s2">++;</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+        <span class="s0">return </span><span class="s1">uniqueIndex</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">public static </span><span class="s1">Integer</span><span class="s2">[] </span><span class="s1">removeDuplicates</span><span class="s2">(</span><span class="s1">Integer</span><span class="s2">[] </span><span class="s1">nums</span><span class="s2">) {</span>
+        <span class="s1">Set</span><span class="s2">&lt;</span><span class="s1">Integer</span><span class="s2">&gt; </span><span class="s1">set </span><span class="s2">= </span><span class="s0">new </span><span class="s1">HashSet</span><span class="s2">&lt;&gt;(</span><span class="s1">Arrays</span><span class="s2">.</span><span class="s1">asList</span><span class="s2">(</span><span class="s1">nums</span><span class="s2">));</span>
+        <span class="s0">return </span><span class="s1">set</span><span class="s2">.</span><span class="s1">toArray</span><span class="s2">(</span><span class="s0">new </span><span class="s1">Integer</span><span class="s2">[</span><span class="s4">0</span><span class="s2">]);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s1">RemoveDuplicatesFromSortedArray removeDuplicatesFromSortedArray </span><span class="s2">= </span><span class="s0">new </span><span class="s1">RemoveDuplicatesFromSortedArray</span><span class="s2">();</span>
+        <span class="s0">int</span><span class="s2">[] </span><span class="s1">arr </span><span class="s2">= {</span><span class="s4">1</span><span class="s2">,</span><span class="s4">1</span><span class="s2">,</span><span class="s4">2</span><span class="s2">};</span>
+        <span class="s0">int </span><span class="s1">k </span><span class="s2">= </span><span class="s1">removeDuplicatesFromSortedArray</span><span class="s2">.</span><span class="s1">removeDuplicates</span><span class="s2">(</span><span class="s1">arr</span><span class="s2">);</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s4">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">k</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">arr</span><span class="s2">[</span><span class="s1">i</span><span class="s2">]);</span>
+        <span class="s2">}</span>
+
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

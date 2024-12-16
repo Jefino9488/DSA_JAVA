@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>RelativeSortArray.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+RelativeSortArray.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">Arrays</span><span class="s2">;</span>
+
+
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.*;</span>
+
+<span class="s0">public class </span><span class="s1">RelativeSortArray </span><span class="s2">{</span>
+    <span class="s0">public int</span><span class="s2">[] </span><span class="s1">relativeSortArray</span><span class="s2">(</span><span class="s0">int</span><span class="s2">[] </span><span class="s1">x</span><span class="s2">, </span><span class="s0">int</span><span class="s2">[] </span><span class="s1">y</span><span class="s2">) {</span>
+        <span class="s1">Map</span><span class="s2">&lt;</span><span class="s1">Integer</span><span class="s2">, </span><span class="s1">Integer</span><span class="s2">&gt; </span><span class="s1">a </span><span class="s2">= </span><span class="s0">new </span><span class="s1">HashMap</span><span class="s2">&lt;&gt;();</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">b </span><span class="s2">: </span><span class="s1">x</span><span class="s2">) </span><span class="s1">a</span><span class="s2">.</span><span class="s1">put</span><span class="s2">(</span><span class="s1">b</span><span class="s2">, </span><span class="s1">a</span><span class="s2">.</span><span class="s1">getOrDefault</span><span class="s2">(</span><span class="s1">b</span><span class="s2">, </span><span class="s3">0</span><span class="s2">) + </span><span class="s3">1</span><span class="s2">);</span>
+        <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">Integer</span><span class="s2">&gt; </span><span class="s1">c </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">d </span><span class="s2">: </span><span class="s1">y</span><span class="s2">) {</span>
+            <span class="s0">int </span><span class="s1">e </span><span class="s2">= </span><span class="s1">a</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">d</span><span class="s2">);</span>
+            <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">f </span><span class="s2">= </span><span class="s3">0</span><span class="s2">; </span><span class="s1">f </span><span class="s2">&lt; </span><span class="s1">e</span><span class="s2">; </span><span class="s1">f</span><span class="s2">++) </span><span class="s1">c</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">d</span><span class="s2">);</span>
+            <span class="s1">a</span><span class="s2">.</span><span class="s1">remove</span><span class="s2">(</span><span class="s1">d</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">Integer</span><span class="s2">&gt; </span><span class="s1">g </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">h </span><span class="s2">: </span><span class="s1">a</span><span class="s2">.</span><span class="s1">keySet</span><span class="s2">()) {</span>
+            <span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s1">a</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">h</span><span class="s2">);</span>
+            <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">j </span><span class="s2">= </span><span class="s3">0</span><span class="s2">; </span><span class="s1">j </span><span class="s2">&lt; </span><span class="s1">i</span><span class="s2">; </span><span class="s1">j</span><span class="s2">++) </span><span class="s1">g</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">h</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s1">Collections</span><span class="s2">.</span><span class="s1">sort</span><span class="s2">(</span><span class="s1">g</span><span class="s2">);</span>
+        <span class="s1">c</span><span class="s2">.</span><span class="s1">addAll</span><span class="s2">(</span><span class="s1">g</span><span class="s2">);</span>
+        <span class="s0">int</span><span class="s2">[] </span><span class="s1">k </span><span class="s2">= </span><span class="s0">new int</span><span class="s2">[</span><span class="s1">c</span><span class="s2">.</span><span class="s1">size</span><span class="s2">()];</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">l </span><span class="s2">= </span><span class="s3">0</span><span class="s2">; </span><span class="s1">l </span><span class="s2">&lt; </span><span class="s1">c</span><span class="s2">.</span><span class="s1">size</span><span class="s2">(); </span><span class="s1">l</span><span class="s2">++) </span><span class="s1">k</span><span class="s2">[</span><span class="s1">l</span><span class="s2">] = </span><span class="s1">c</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">l</span><span class="s2">);</span>
+        <span class="s0">return </span><span class="s1">k</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s0">int</span><span class="s2">[] </span><span class="s1">arr1 </span><span class="s2">= {</span><span class="s3">2</span><span class="s2">,</span><span class="s3">3</span><span class="s2">,</span><span class="s3">1</span><span class="s2">,</span><span class="s3">3</span><span class="s2">,</span><span class="s3">2</span><span class="s2">,</span><span class="s3">4</span><span class="s2">,</span><span class="s3">6</span><span class="s2">,</span><span class="s3">7</span><span class="s2">,</span><span class="s3">9</span><span class="s2">,</span><span class="s3">2</span><span class="s2">,</span><span class="s3">19</span><span class="s2">};</span>
+        <span class="s0">int</span><span class="s2">[] </span><span class="s1">arr2 </span><span class="s2">= {</span><span class="s3">2</span><span class="s2">,</span><span class="s3">1</span><span class="s2">,</span><span class="s3">4</span><span class="s2">,</span><span class="s3">3</span><span class="s2">,</span><span class="s3">9</span><span class="s2">,</span><span class="s3">6</span><span class="s2">};</span>
+        <span class="s1">RelativeSortArray relativeSortArray  </span><span class="s2">= </span><span class="s0">new </span><span class="s1">RelativeSortArray</span><span class="s2">();</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">Arrays</span><span class="s2">.</span><span class="s1">toString</span><span class="s2">(</span><span class="s1">relativeSortArray</span><span class="s2">.</span><span class="s1">relativeSortArray</span><span class="s2">(</span><span class="s1">arr1</span><span class="s2">, </span><span class="s1">arr2</span><span class="s2">)));</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

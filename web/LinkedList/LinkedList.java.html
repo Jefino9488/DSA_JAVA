@@ -1,0 +1,131 @@
+<html>
+<head>
+<title>LinkedList.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #2aacb8;}
+.s4 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+LinkedList.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">LinkedList</span><span class="s2">;</span>
+
+<span class="s0">class </span><span class="s1">Node </span><span class="s2">{</span>
+    <span class="s0">int </span><span class="s1">data</span><span class="s2">;</span>
+    <span class="s1">Node next</span><span class="s2">;</span>
+
+    <span class="s0">public </span><span class="s1">Node</span><span class="s2">(</span><span class="s0">int </span><span class="s1">data</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">data </span><span class="s2">= </span><span class="s1">data</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">next </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+
+<span class="s0">public class </span><span class="s1">LinkedList </span><span class="s2">{</span>
+
+    <span class="s0">public </span><span class="s1">Node insertAtBeginning</span><span class="s2">(</span><span class="s1">Node head</span><span class="s2">, </span><span class="s0">int </span><span class="s1">value</span><span class="s2">) {</span>
+        <span class="s1">Node newNode </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Node</span><span class="s2">(</span><span class="s1">value</span><span class="s2">);</span>
+        <span class="s1">newNode</span><span class="s2">.</span><span class="s1">next </span><span class="s2">= </span><span class="s1">head</span><span class="s2">;</span>
+        <span class="s1">head </span><span class="s2">= </span><span class="s1">newNode</span><span class="s2">;</span>
+        <span class="s0">return </span><span class="s1">head</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public static </span><span class="s1">Node insertAtEnd</span><span class="s2">(</span><span class="s1">Node head</span><span class="s2">, </span><span class="s0">int </span><span class="s1">value</span><span class="s2">) {</span>
+        <span class="s1">Node newNode </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Node</span><span class="s2">(</span><span class="s1">value</span><span class="s2">);</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">head </span><span class="s2">== </span><span class="s0">null</span><span class="s2">)</span>
+            <span class="s0">return </span><span class="s1">newNode</span><span class="s2">;</span>
+
+        <span class="s1">Node curr </span><span class="s2">= </span><span class="s1">head</span><span class="s2">;</span>
+        <span class="s0">while </span><span class="s2">(</span><span class="s1">curr</span><span class="s2">.</span><span class="s1">next </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">) {</span>
+            <span class="s1">curr </span><span class="s2">= </span><span class="s1">curr</span><span class="s2">.</span><span class="s1">next</span><span class="s2">;</span>
+        <span class="s2">}</span>
+        <span class="s1">curr</span><span class="s2">.</span><span class="s1">next </span><span class="s2">= </span><span class="s1">newNode</span><span class="s2">;</span>
+        <span class="s0">return </span><span class="s1">head</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public static </span><span class="s1">Node insertPos</span><span class="s2">(</span><span class="s1">Node head</span><span class="s2">, </span><span class="s0">int </span><span class="s1">pos</span><span class="s2">, </span><span class="s0">int </span><span class="s1">data</span><span class="s2">) {</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">pos </span><span class="s2">&lt; </span><span class="s3">1</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Invalid position!&quot;</span><span class="s2">);</span>
+            <span class="s0">return </span><span class="s1">head</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">pos </span><span class="s2">== </span><span class="s3">1</span><span class="s2">) {</span>
+            <span class="s1">Node temp </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Node</span><span class="s2">(</span><span class="s1">data</span><span class="s2">);</span>
+            <span class="s1">temp</span><span class="s2">.</span><span class="s1">next </span><span class="s2">= </span><span class="s1">head</span><span class="s2">;</span>
+            <span class="s0">return </span><span class="s1">temp</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+        <span class="s1">Node prev </span><span class="s2">= </span><span class="s1">head</span><span class="s2">;</span>
+        <span class="s0">int </span><span class="s1">count </span><span class="s2">= </span><span class="s3">1</span><span class="s2">;</span>
+        <span class="s0">while </span><span class="s2">(</span><span class="s1">count </span><span class="s2">&lt; </span><span class="s1">pos </span><span class="s2">- </span><span class="s3">1 </span><span class="s2">&amp;&amp; </span><span class="s1">prev </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">) {</span>
+            <span class="s1">prev </span><span class="s2">= </span><span class="s1">prev</span><span class="s2">.</span><span class="s1">next</span><span class="s2">;</span>
+            <span class="s1">count</span><span class="s2">++;</span>
+        <span class="s2">}</span>
+
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">prev </span><span class="s2">== </span><span class="s0">null</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Invalid position!&quot;</span><span class="s2">);</span>
+            <span class="s0">return </span><span class="s1">head</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+        <span class="s1">Node temp </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Node</span><span class="s2">(</span><span class="s1">data</span><span class="s2">);</span>
+        <span class="s1">temp</span><span class="s2">.</span><span class="s1">next </span><span class="s2">= </span><span class="s1">prev</span><span class="s2">.</span><span class="s1">next</span><span class="s2">;</span>
+        <span class="s1">prev</span><span class="s2">.</span><span class="s1">next </span><span class="s2">= </span><span class="s1">temp</span><span class="s2">;</span>
+        <span class="s0">return </span><span class="s1">head</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public static </span><span class="s1">Node removeFirstNode</span><span class="s2">(</span><span class="s1">Node head</span><span class="s2">) {</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">head </span><span class="s2">== </span><span class="s0">null</span><span class="s2">) {</span>
+            <span class="s0">return null</span><span class="s2">;</span>
+        <span class="s2">}</span>
+        <span class="s1">head </span><span class="s2">= </span><span class="s1">head</span><span class="s2">.</span><span class="s1">next</span><span class="s2">;</span>
+        <span class="s0">return </span><span class="s1">head</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public static void </span><span class="s1">printList</span><span class="s2">(</span><span class="s1">Node head</span><span class="s2">) {</span>
+        <span class="s1">Node temp </span><span class="s2">= </span><span class="s1">head</span><span class="s2">;</span>
+        <span class="s0">while </span><span class="s2">(</span><span class="s1">temp </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">temp</span><span class="s2">.</span><span class="s1">data </span><span class="s2">+ </span><span class="s4">&quot; -&gt; &quot;</span><span class="s2">);</span>
+            <span class="s1">temp </span><span class="s2">= </span><span class="s1">temp</span><span class="s2">.</span><span class="s1">next</span><span class="s2">;</span>
+        <span class="s2">}</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;null&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s1">LinkedList list </span><span class="s2">= </span><span class="s0">new </span><span class="s1">LinkedList</span><span class="s2">();</span>
+
+        <span class="s1">Node head </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+
+        <span class="s1">head </span><span class="s2">= </span><span class="s1">list</span><span class="s2">.</span><span class="s1">insertAtBeginning</span><span class="s2">(</span><span class="s1">head</span><span class="s2">, </span><span class="s3">10</span><span class="s2">);</span>
+        <span class="s1">head </span><span class="s2">= </span><span class="s1">list</span><span class="s2">.</span><span class="s1">insertAtBeginning</span><span class="s2">(</span><span class="s1">head</span><span class="s2">, </span><span class="s3">20</span><span class="s2">);</span>
+        <span class="s1">head </span><span class="s2">= </span><span class="s1">list</span><span class="s2">.</span><span class="s1">insertAtBeginning</span><span class="s2">(</span><span class="s1">head</span><span class="s2">, </span><span class="s3">30</span><span class="s2">);</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;After insertion at the beginning:&quot;</span><span class="s2">);</span>
+        <span class="s1">printList</span><span class="s2">(</span><span class="s1">head</span><span class="s2">);</span>
+
+        <span class="s1">head </span><span class="s2">= </span><span class="s1">insertAtEnd</span><span class="s2">(</span><span class="s1">head</span><span class="s2">, </span><span class="s3">40</span><span class="s2">);</span>
+        <span class="s1">head </span><span class="s2">= </span><span class="s1">insertAtEnd</span><span class="s2">(</span><span class="s1">head</span><span class="s2">, </span><span class="s3">50</span><span class="s2">);</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;After insertion at the end:&quot;</span><span class="s2">);</span>
+        <span class="s1">printList</span><span class="s2">(</span><span class="s1">head</span><span class="s2">);</span>
+
+        <span class="s1">head </span><span class="s2">= </span><span class="s1">insertPos</span><span class="s2">(</span><span class="s1">head</span><span class="s2">, </span><span class="s3">3</span><span class="s2">, </span><span class="s3">25</span><span class="s2">);</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;After insertion at position 3:&quot;</span><span class="s2">);</span>
+        <span class="s1">printList</span><span class="s2">(</span><span class="s1">head</span><span class="s2">);</span>
+
+        <span class="s1">head </span><span class="s2">= </span><span class="s1">removeFirstNode</span><span class="s2">(</span><span class="s1">head</span><span class="s2">);</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;After removing the first node:&quot;</span><span class="s2">);</span>
+        <span class="s1">printList</span><span class="s2">(</span><span class="s1">head</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
