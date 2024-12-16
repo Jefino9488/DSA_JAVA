@@ -22,6 +22,14 @@ public class MergeSortedArray {
             p--;
         }
     }
+    public int findMedian(int[] arr) {
+        int l = arr.length;
+        int r = l / 2;
+        if (l % 2 == 0) {
+            return (arr[l / 2] + arr[l / 2 - 1]) / 2;
+        }
+        return arr[l / 2];
+    }
     public static void main(String[] args) {
         MergeSortedArray mergeSortedArray = new MergeSortedArray();
         int[] nums1 = {1, 2, 3, 0, 0, 0};
@@ -30,5 +38,6 @@ public class MergeSortedArray {
         for (int j : nums1) {
             System.out.print(j + " ");
         }
+        mergeSortedArray.findMedian(nums2);
     }
 }

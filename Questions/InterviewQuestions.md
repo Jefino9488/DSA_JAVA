@@ -1,0 +1,11 @@
+- what is data structure
+- aplication of dsa
+- decision making
+- diff btw file structure and storage
+- types of tree
+- advantage of linked list over an array
+- linear array
+- do dynamic memory allocation help in managind data and how
+- how r elements of 2d array stored in memory
+- what is stack ds and application of stack
+//
